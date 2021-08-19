@@ -47,6 +47,11 @@
             <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>42.2.10</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -70,7 +75,7 @@
                         <id>default-cli</id>
                         <configuration>
                             <mainClass>
-                                com.home.bookmanagmentapplication/com.home.bookmanagmentapplication.HelloApplication
+                                com.home.bookmanagmentapplication/com.home.bookmanagmentapplication.mainCon
                             </mainClass>
                         </configuration>
                     </execution>

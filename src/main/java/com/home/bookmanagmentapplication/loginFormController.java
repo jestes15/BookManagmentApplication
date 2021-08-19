@@ -10,6 +10,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.PasswordField;
 import javafx.stage.Stage;
 
+import java.sql.Connection;
+
 public class loginFormController {
     @FXML
     private TextField user;
@@ -31,7 +33,7 @@ public class loginFormController {
         password = loginPasswordField.getText();
 
         if (submit()) {
-            System.out.println("Works");
+            Connection con = security.connectToDatabase("postgres", "SAMsung-2002");
         }
     }
 }

@@ -11,6 +11,7 @@ import javafx.scene.control.PasswordField;
 import javafx.stage.Stage;
 
 import java.sql.Connection;
+import java.sql.SQLException;
 
 public class loginFormController {
     @FXML
@@ -31,9 +32,13 @@ public class loginFormController {
     protected void onLoginButtonClicked() {
         username = user.getText();
         password = loginPasswordField.getText();
-
         if (submit()) {
             Connection con = security.connectToDatabase("postgres", "SAMsung-2002");
+            try {
+                con.createStatement();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
     }
 }

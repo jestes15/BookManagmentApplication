@@ -11,8 +11,7 @@ import java.util.Objects;
 
 public class mainCon extends Application {
 
-    @Override
-    public void start(Stage stage) throws IOException {
+    @Override public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(mainCon.class.getResource("loginForm.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 500, 250);
         stage.setTitle("BMS 2021.0.0 Beta");

@@ -4,79 +4,46 @@
 <?import javafx.scene.layout.*?>
 
 <VBox prefHeight="131.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.home.bookmanagmentapplication.mainController">
-   <children>
-      <MenuBar prefWidth="581.0">
-        <menus>
-          <Menu mnemonicParsing="false" text="File">
-            <items>
-              <MenuItem mnemonicParsing="false" text="Close" />
-            </items>
-          </Menu>
-          <Menu mnemonicParsing="false" text="Edit">
-            <items>
-              <MenuItem mnemonicParsing="false" text="Delete" />
-            </items>
-          </Menu>
-          <Menu mnemonicParsing="false" text="Help">
-            <items>
-              <MenuItem mnemonicParsing="false" text="About" />
-            </items>
-          </Menu>
-        </menus>
-      </MenuBar>
-      <GridPane alignment="CENTER" prefHeight="105.0" prefWidth="600.0">
+    <MenuBar fx:id="menuBar" prefWidth="581.0">
+        <Menu mnemonicParsing="false" text="File">
+            <MenuItem mnemonicParsing="false" onAction="#onLogoutButtonPressed" text="Logout" />
+            <MenuItem mnemonicParsing="false" onAction="#onCloseButtonPress" text="Close" />
+        </Menu>
+        <Menu mnemonicParsing="false" text="Help">
+            <MenuItem mnemonicParsing="false" onAction="#onAboutButtonPressed" text="About" />
+        </Menu>
+    </MenuBar>
+    <GridPane alignment="CENTER" prefHeight="105.0" prefWidth="600.0">
         <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
         </columnConstraints>
         <rowConstraints>
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
-         <children>
-            <StackPane prefHeight="150.0" prefWidth="200.0">
-               <children>
-                  <Button fx:id="viewBooks" alignment="CENTER" mnemonicParsing="false" onAction="#onViewBooksPressed" prefHeight="25.0" prefWidth="120.0" text="View Books" />
-               </children>
-            </StackPane>
-            <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1">
-               <children>
-                  <Button fx:id="viewUsers" alignment="CENTER" mnemonicParsing="false" onAction="#onViewUsersPressed" prefHeight="25.0" prefWidth="121.0" text="View Users" />
-               </children>
-            </StackPane>
-            <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="2">
-               <children>
-                  <Button fx:id="viewIssuedBooks" alignment="CENTER" mnemonicParsing="false" onAction="#onViewIssuedBooksPressed" prefHeight="25.0" prefWidth="120.0" text="View Issued Books" />
-               </children>
-            </StackPane>
-            <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="3">
-               <children>
-                  <Button fx:id="issueBook" alignment="CENTER" mnemonicParsing="false" onAction="#onIssueBooksPressed" prefHeight="25.0" prefWidth="120.0" text="Issue Book" />
-               </children>
-            </StackPane>
-            <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.rowIndex="1">
-               <children>
-                  <Button fx:id="addUser" alignment="CENTER" mnemonicParsing="false" onAction="#onAddUserPressed" prefHeight="25.0" prefWidth="120.0" text="Add User" />
-               </children>
-            </StackPane>
-            <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
-               <children>
-                  <Button fx:id="addBook" alignment="CENTER" mnemonicParsing="false" onAction="#onAddBookPressed" prefHeight="25.0" prefWidth="120.0" text="Add Book" />
-               </children>
-            </StackPane>
-            <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
-               <children>
-                  <Button fx:id="returnBook" alignment="CENTER" mnemonicParsing="false" onAction="#onReturnBookPressed" prefHeight="25.0" prefWidth="120.0" text="Return Book" />
-               </children>
-            </StackPane>
-            <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
-               <children>
-                  <Button fx:id="resetOrCreate" alignment="CENTER" mnemonicParsing="false" onAction="#onResetOrCreatePressed" prefHeight="25.0" prefWidth="120.0" text="Create/Reset" />
-               </children>
-            </StackPane>
-         </children>
-      </GridPane>
-   </children>
+        <StackPane prefHeight="150.0" prefWidth="200.0">
+            <Button fx:id="viewBooks" alignment="CENTER" mnemonicParsing="false" onAction="#onViewBooksPressed" prefHeight="25.0" prefWidth="120.0" text="View Books" />
+        </StackPane>
+        <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1">
+            <Button fx:id="viewUsers" alignment="CENTER" mnemonicParsing="false" onAction="#onViewUsersPressed" prefHeight="25.0" prefWidth="121.0" text="View Users" />
+        </StackPane>
+        <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="2">
+            <Button fx:id="viewIssuedBooks" alignment="CENTER" mnemonicParsing="false" onAction="#onViewIssuedBooksPressed" prefHeight="25.0" prefWidth="120.0" text="View Issued Books" />
+        </StackPane>
+        <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="3">
+            <Button fx:id="issueBook" alignment="CENTER" mnemonicParsing="false" onAction="#onIssueBooksPressed" prefHeight="25.0" prefWidth="120.0" text="Issue Book" />
+        </StackPane>
+        <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.rowIndex="1">
+            <Button fx:id="addUser" alignment="CENTER" mnemonicParsing="false" onAction="#onAddUserPressed" prefHeight="25.0" prefWidth="120.0" text="Add User" />
+        </StackPane>
+        <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <Button fx:id="addBook" alignment="CENTER" mnemonicParsing="false" onAction="#onAddBookPressed" prefHeight="25.0" prefWidth="120.0" text="Add Book" />
+        </StackPane>
+        <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+            <Button fx:id="returnBook" alignment="CENTER" mnemonicParsing="false" onAction="#onReturnBookPressed" prefHeight="25.0" prefWidth="120.0" text="Return Book" />
+        </StackPane>
+    </GridPane>
 </VBox>

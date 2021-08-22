@@ -1,14 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.home.bookmanagmentapplication.mainController">
-   <children>
-      <StackPane layoutX="200.0" layoutY="115.0" prefHeight="150.0" prefWidth="200.0">
-         <children>
-            <Button fx:id="returnButton" mnemonicParsing="false" text="Return" />
-         </children>
-      </StackPane>
-   </children>
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.home.bookmanagmentapplication.addBookBackend">
+   <MenuBar fx:id="menuBar" prefWidth="600.0">
+      <Menu mnemonicParsing="false" text="File">
+         <MenuItem mnemonicParsing="false" onAction="#onLogoutButtonPressed" text="Logout" />
+         <MenuItem mnemonicParsing="false" onAction="#onCloseButtonPress" text="Close" />
+      </Menu>
+      <Menu mnemonicParsing="false" text="Help">
+         <MenuItem mnemonicParsing="false" onAction="#onAboutButtonPressed" text="About" />
+      </Menu>
+   </MenuBar>
+   <StackPane layoutX="200.0" layoutY="115.0" prefHeight="150.0" prefWidth="200.0" />
+    <GridPane layoutX="-1.0" layoutY="27.0" prefHeight="327.0" prefWidth="600.0" AnchorPane.bottomAnchor="46.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="27.0">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="295.0" minWidth="10.0" prefWidth="124.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="478.0" minWidth="10.0" prefWidth="476.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="EAN Number:" wrappingWidth="122.13671875" />
+        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Title:" wrappingWidth="120.44140625" GridPane.rowIndex="1" />
+        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="First Name of Author:" wrappingWidth="123.029296875" GridPane.rowIndex="2" />
+        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Last Name of Author:" wrappingWidth="119.845703125" GridPane.rowIndex="3" />
+        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Price:" wrappingWidth="118.6171875" GridPane.rowIndex="4" />
+        <TextField fx:id="eanNumberField" promptText="Enter EAN here" GridPane.columnIndex="1" />
+        <TextField fx:id="titleField" promptText="Enter title here" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+        <TextField fx:id="firstNameField" promptText="Enter author's first name here" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+        <TextField fx:id="lastNameField" promptText="Enter author's last name here" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+        <TextField fx:id="priceField" promptText="Enter the price here" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+    </GridPane>
+   <Button layoutX="400.0" layoutY="360.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" text="Submit" />
+   <Button layoutX="275.0" layoutY="360.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="90.0" text="Add To List" />
+   <Button fx:id="returnButton" layoutX="510.0" layoutY="360.0" mnemonicParsing="false" onAction="#onReturnButtonPressed" prefHeight="25.0" prefWidth="75.0" text="Return" />
+
+    <padding>
+        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+    </padding>
 </AnchorPane>

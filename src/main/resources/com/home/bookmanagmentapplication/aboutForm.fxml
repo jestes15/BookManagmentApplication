@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="200.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.home.bookmanagmentapplication.mainController">
+    <Text layoutX="14.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Book Management System" wrappingWidth="156.3999996423721">
+        <font>
+            <Font size="18.0" />
+        </font>
+    </Text>
+    <Text layoutX="14.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="This application was created as a project to sharpen the Java skills and test his abilities in writing database and gui applications.&#10;Joshua Estes ©2021" wrappingWidth="292.3999996423721">
+        <font>
+            <Font size="12.0" />
+        </font>
+    </Text>
+   <Button fx:id="okButton" onAction="#onOkButtonPressed" layoutX="318.0" layoutY="162.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="68.0" text="Ok" />
+</AnchorPane>

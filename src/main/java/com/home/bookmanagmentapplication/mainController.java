@@ -39,26 +39,27 @@ public class mainController {
     }
 
     @FXML private void onViewBooksPressed() {
-        changeScene(viewBooks, "testScene.fxml");
+        changeScene(viewBooks, "viewBooksScene.fxml");
     }
     @FXML private void onViewUsersPressed() {
-        changeScene(viewUsers, "testScene.fxml");
+        changeScene(viewUsers, "viewUsersScene.fxml");
     }
     @FXML private void onViewIssuedBooksPressed() {
-        changeScene(viewIssuedBooks, "testScene.fxml");
+        changeScene(viewIssuedBooks, "viewIssuedBooksScene.fxml");
     }
     @FXML private void onIssueBooksPressed() {
-        changeScene(issueBook, "testScene.fxml");
+        changeScene(issueBook, "issueBookScene.fxml");
     }
     @FXML private void onAddUserPressed() {
-        changeScene(addUser, "testScene.fxml");
+        changeScene(addUser, "addUserScene.fxml");
     }
     @FXML private void onAddBookPressed() {
-        changeScene(addBook, "testScene.fxml");
+        changeScene(addBook, "addBookScene.fxml");
     }
     @FXML private void onReturnBookPressed() {
-        changeScene(returnBook, "testScene.fxml");
+        changeScene(returnBook, "returnBookScene.fxml");
     }
+
     @FXML private void onCloseButtonPress() {
         System.exit(0);
     }

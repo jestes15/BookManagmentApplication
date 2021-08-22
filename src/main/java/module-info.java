@@ -11,4 +11,6 @@ module com.home.bookmanagmentapplication {
 
     opens com.home.bookmanagmentapplication to javafx.fxml;
     exports com.home.bookmanagmentapplication;
+    exports com.home.bookmanagmentapplication.mainMenuControllers;
+    opens com.home.bookmanagmentapplication.mainMenuControllers to javafx.fxml;
 }

@@ -23,34 +23,19 @@ public class loginFormController {
     private boolean submit() {
         return security.compare(username, password);
     }
-    private void throwError(String header, String content) {
+    private void throwError() {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("ERROR");
-        alert.setHeaderText(header);
-        alert.setContentText(content);
+        alert.setHeaderText("ERROR");
+        alert.setContentText("Your username or password was incorrect");
 
         alert.showAndWait();
     }
-    @FXML protected void onLoginButtonClicked() throws IOException {
+    @FXML protected void onLoginButtonClicked() {
         username = user.getText();
         password = loginPasswordField.getText();
 
-        Properties login = new Properties();
-        try (FileReader in = new FileReader("C:\\Users\\bl4z3\\IdeaProjects\\BookManagmentApplication\\src\\main\\resources\\com\\home\\bookmanagmentapplication\\login.properties")) {
-            login.load(in);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        String username = login.getProperty("username");
-        String password = login.getProperty("password");
-
         if (submit()) {
-            Connection con = security.connectToDatabase(username, password);
-            try {
-                con.createStatement();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("main.fxml"));
                 Stage stage = (Stage) loginButton.getScene().getWindow();
@@ -61,7 +46,7 @@ public class loginFormController {
             }
         }
         else {
-            throwError("ERROR", "Your username or password was incorrect");
+            throwError();
         }
     }
 }

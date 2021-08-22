@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.home.bookmanagmentapplication.addBookBackend">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.home.bookmanagmentapplication.mainMenuControllers.addBookBackend">
    <MenuBar fx:id="menuBar" prefWidth="600.0">
       <Menu mnemonicParsing="false" text="File">
          <MenuItem mnemonicParsing="false" onAction="#onLogoutButtonPressed" text="Logout" />
@@ -39,8 +39,8 @@
         <TextField fx:id="lastNameField" promptText="Enter author's last name here" GridPane.columnIndex="1" GridPane.rowIndex="3" />
         <TextField fx:id="priceField" promptText="Enter the price here" GridPane.columnIndex="1" GridPane.rowIndex="4" />
     </GridPane>
-   <Button layoutX="400.0" layoutY="360.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" text="Submit" />
-   <Button layoutX="275.0" layoutY="360.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="90.0" text="Add To List" />
+   <Button layoutX="400.0" layoutY="360.0" mnemonicParsing="false" onAction="#onSubmitButtonPressed" prefHeight="25.0" prefWidth="75.0" text="Submit" />
+   <Button layoutX="275.0" layoutY="360.0" mnemonicParsing="false" onAction="#onAddButtonPressed" prefHeight="25.0" prefWidth="90.0" text="Add To List" />
    <Button fx:id="returnButton" layoutX="510.0" layoutY="360.0" mnemonicParsing="false" onAction="#onReturnButtonPressed" prefHeight="25.0" prefWidth="75.0" text="Return" />
 
     <padding>

@@ -1,4 +1,4 @@
-module com.home.bookmanagmentapplication {
+module com.home.bookmanagementapplication {
     requires javafx.controls;
     requires javafx.fxml;
 
@@ -9,8 +9,8 @@ module com.home.bookmanagmentapplication {
     requires org.jetbrains.annotations;
     requires org.apache.commons.codec;
 
-    opens com.home.bookmanagmentapplication to javafx.fxml;
-    exports com.home.bookmanagmentapplication;
-    exports com.home.bookmanagmentapplication.mainMenuControllers;
-    opens com.home.bookmanagmentapplication.mainMenuControllers to javafx.fxml;
+    opens com.home.bookmanagementapplication to javafx.fxml;
+    exports com.home.bookmanagementapplication;
+    exports com.home.bookmanagementapplication.mainMenu;
+    opens com.home.bookmanagementapplication.mainMenu to javafx.fxml;
 }

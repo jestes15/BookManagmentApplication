@@ -1,4 +1,4 @@
-package com.home.bookmanagmentapplication;
+package com.home.bookmanagementapplication;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -6,11 +6,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 
-import java.io.FileReader;
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.SQLException;
-import java.util.Properties;
 
 public class loginFormController {
 

@@ -8,7 +8,7 @@
 
 <AnchorPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.home.bookmanagmentapplication.mainMenuControllers.returnBookBackend"
+            fx:controller="com.home.bookmanagementapplication.mainMenu.issueBookBackend"
             prefHeight="400.0" prefWidth="600.0">
 
 </AnchorPane>

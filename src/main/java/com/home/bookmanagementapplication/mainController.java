@@ -1,4 +1,4 @@
-package com.home.bookmanagmentapplication;
+package com.home.bookmanagementapplication;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -39,25 +39,25 @@ public class mainController {
     }
 
     @FXML private void onViewBooksPressed() {
-        changeScene(viewBooks, "viewBooksScene.fxml");
+        changeScene(viewBooks, "mainMenu/viewBooksScene.fxml");
     }
     @FXML private void onViewUsersPressed() {
-        changeScene(viewUsers, "viewUsersScene.fxml");
+        changeScene(viewUsers, "mainMenu/viewUsersScene.fxml");
     }
     @FXML private void onViewIssuedBooksPressed() {
-        changeScene(viewIssuedBooks, "viewIssuedBooksScene.fxml");
+        changeScene(viewIssuedBooks, "mainMenu/viewIssuedBooksScene.fxml");
     }
     @FXML private void onIssueBooksPressed() {
-        changeScene(issueBook, "issueBookScene.fxml");
+        changeScene(issueBook, "mainMenu/issueBookScene.fxml");
     }
     @FXML private void onAddUserPressed() {
-        changeScene(addUser, "addUserScene.fxml");
+        changeScene(addUser, "mainMenu/addUserScene.fxml");
     }
     @FXML private void onAddBookPressed() {
-        changeScene(addBook, "addBookScene.fxml");
+        changeScene(addBook, "mainMenu/addBookScene.fxml");
     }
     @FXML private void onReturnBookPressed() {
-        changeScene(returnBook, "returnBookScene.fxml");
+        changeScene(returnBook, "mainMenu/returnBookScene.fxml");
     }
 
     @FXML private void onCloseButtonPress() {

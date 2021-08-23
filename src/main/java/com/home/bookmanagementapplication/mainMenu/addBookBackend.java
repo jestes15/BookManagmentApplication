@@ -1,6 +1,6 @@
-package com.home.bookmanagmentapplication.mainMenuControllers;
+package com.home.bookmanagementapplication.mainMenu;
 
-import com.home.bookmanagmentapplication.security;
+import com.home.bookmanagementapplication.security;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -9,14 +9,13 @@ import javafx.scene.control.Button;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import org.jetbrains.annotations.NotNull;
 
 import java.io.FileReader;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.util.Arrays;
-import java.util.Properties;
+import java.sql.Statement;
+import java.util.*;
 
 public class addBookBackend {
     @FXML private TextField eanNumberField;
@@ -31,18 +30,12 @@ public class addBookBackend {
     private String username;
     private String password;
 
-    private Object[][] bookArray;
+    private final Map<Integer, String> bookArray = new HashMap<>();
 
-    private void changeScene(@NotNull Button button, String fxmlFile) {
-        changeScene(fxmlFile, button.getScene());
-    }
-    private void changeScene(@NotNull MenuBar bar, String fxmlFile) {
-        changeScene(fxmlFile, bar.getScene());
-    }
-    private void changeScene(String fxmlFile, @NotNull Scene scene2) {
+    private void changeScene(Scene buttonScene, String fxmlFile) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
-            Stage stage = (Stage) scene2.getWindow();
+            Stage stage = (Stage) buttonScene.getWindow();
             Scene scene = new Scene(loader.load());
             stage.setScene(scene);
         } catch (IOException e) {
@@ -51,16 +44,16 @@ public class addBookBackend {
     }
 
     @FXML private void onReturnButtonPressed() {
-        changeScene(returnButton, "main.fxml");
+        changeScene(returnButton.getScene(), "/../main.fxml");
     }
     @FXML private void onCloseButtonPress() {
         System.exit(0);
     }
     @FXML private void onLogoutButtonPressed() {
-        changeScene(menuBar, "loginForm.fxml");
+        changeScene(menuBar.getScene(), "/../loginForm.fxml");
     }
     @FXML private void onAboutButtonPressed() {
-        changeScene(menuBar, "aboutForm.fxml");
+        changeScene(menuBar.getScene(), "/../aboutForm.fxml");
     }
     private void throwError() {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -84,13 +77,16 @@ public class addBookBackend {
 
     @FXML private void onAddButtonPressed() {
         try {
-            int EAN = Integer.parseInt(eanNumberField.getText()); // NumberFormatException thrown here
+            long EAN = Long.parseLong(eanNumberField.getText()); // NumberFormatException thrown here
             String title = (titleField.getText().length() < 512) ? titleField.getText() : null;
             String firstName = (firstNameField.getText().length() < 512) ? firstNameField.getText() : null;
             String lastName = (lastNameField.getText().length() < 512) ? lastNameField.getText() : null;
             float price = Float.parseFloat(priceField.getText());
 
-            bookArray[0] = new Object[]{EAN, title, lastName, firstName, price};
+            String statement = String.format("INSERT INTO public.books (ean, title, author_last_name, author_first_name, price) VALUES (%d, '%s', '%s', '%s', %f);",
+                    EAN, title, lastName, firstName, price);
+
+            bookArray.put(bookArray.size(), statement);
         } catch (NumberFormatException e) {
             throwError();
             e.printStackTrace();
@@ -99,16 +95,14 @@ public class addBookBackend {
 
     @FXML private void onSubmitButtonPressed() {
         loginToDB();
-        String[] statement = new String[bookArray.length-1];
-
-        for (int i = 0; i < bookArray.length; i++) {
-            statement[i] = Arrays.toString(new String[]{String.format("INSERT INTO public.books (ean, title, author_last_name, author_first_name, price) VALUES (%d, %s, %s, %s, %f);",
-                    (int) bookArray[i][0], bookArray[i][1], bookArray[i][2], bookArray[i][3], (float) bookArray[i][4])});
-        }
-        System.out.println(statement[0]);
         Connection con = security.connectToDatabase(username, password);
+
+        for (Map.Entry<Integer,String> x : bookArray.entrySet())
+            System.out.println(x);
+
         try {
-            con.createStatement();
+            Statement stmt = con.createStatement();
+            //stmt.execute(bookArray.get(0));
         } catch (SQLException e) {
             e.printStackTrace();
         }

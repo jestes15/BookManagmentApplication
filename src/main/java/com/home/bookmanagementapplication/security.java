@@ -1,6 +1,5 @@
-package com.home.bookmanagmentapplication;
+package com.home.bookmanagementapplication;
 
-import java.nio.charset.StandardCharsets;
 import java.sql.*;
 import org.apache.commons.codec.digest.DigestUtils;
 

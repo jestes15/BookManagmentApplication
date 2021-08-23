@@ -1,11 +1,16 @@
 package com.home.bookmanagementapplication;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 
+import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.MenuBar;
+import javafx.stage.Modality;
+import javafx.stage.Popup;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -37,27 +42,41 @@ public class mainController {
             e.printStackTrace();
         }
     }
+    private void popupSceneChange(String fxmlFile) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
+            Parent parent = loader.load();
+            Scene scene = new Scene(parent, 400, 200);
+            Stage stage = new Stage();
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.setScene(scene);
+            stage.showAndWait();
+            stage.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     @FXML private void onViewBooksPressed() {
-        changeScene(viewBooks, "mainMenu/viewBooksScene.fxml");
+        changeScene(viewBooks, "viewBooksScene.fxml");
     }
     @FXML private void onViewUsersPressed() {
-        changeScene(viewUsers, "mainMenu/viewUsersScene.fxml");
+        changeScene(viewUsers, "viewUsersScene.fxml");
     }
     @FXML private void onViewIssuedBooksPressed() {
-        changeScene(viewIssuedBooks, "mainMenu/viewIssuedBooksScene.fxml");
+        changeScene(viewIssuedBooks, "viewIssuedBooksScene.fxml");
     }
     @FXML private void onIssueBooksPressed() {
-        changeScene(issueBook, "mainMenu/issueBookScene.fxml");
+        changeScene(issueBook, "issueBookScene.fxml");
     }
     @FXML private void onAddUserPressed() {
-        changeScene(addUser, "mainMenu/addUserScene.fxml");
+        changeScene(addUser, "addUserScene.fxml");
     }
     @FXML private void onAddBookPressed() {
-        changeScene(addBook, "mainMenu/addBookScene.fxml");
+        changeScene(addBook, "addBookScene.fxml");
     }
     @FXML private void onReturnBookPressed() {
-        changeScene(returnBook, "mainMenu/returnBookScene.fxml");
+        changeScene(returnBook, "returnBookScene.fxml");
     }
 
     @FXML private void onCloseButtonPress() {
@@ -67,9 +86,11 @@ public class mainController {
         changeScene(menuBar, "loginForm.fxml");
     }
     @FXML private void onAboutButtonPressed() {
-        changeScene(menuBar, "aboutForm.fxml");
+        popupSceneChange("aboutForm.fxml");
     }
-    @FXML private void onOkButtonPressed() {
-        changeScene(okButton, "main.fxml");
+    @FXML private void onOkButtonPressed(ActionEvent event) {
+        Node source = (Node)  event.getSource();
+        Stage stage  = (Stage) source.getScene().getWindow();
+        stage.close();
     }
 }

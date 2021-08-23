@@ -1,11 +1,44 @@
 package com.home.bookmanagementapplication;
 
+import java.io.FileReader;
+import java.io.IOException;
 import java.sql.*;
+import java.util.Properties;
+
 import org.apache.commons.codec.digest.DigestUtils;
 
 public class security {
+
+    private static String[] getCreds() {
+        Properties login = new Properties();
+        try (FileReader in = new FileReader("C:\\Users\\bl4z3\\IdeaProjects\\BookManagementApplication\\src\\main\\resources\\com\\home\\bookmanagementapplication\\properties\\login.properties")) {
+            login.load(in);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return new String[]{login.getProperty("username"), login.getProperty("password")};
+    }
+
     public static boolean compare(String username, String password) {
-        return username.equals("jestes15") && (DigestUtils.sha256Hex(password)).equals("5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8");
+        String[] loginInfo = getCreds();
+        Connection connection = connectToDatabase(loginInfo[0], loginInfo[1]);
+        ResultSet rs = null;
+        int admin_privileges = 0;
+        try {
+            Statement stmt = connection.createStatement();
+            rs = stmt.executeQuery("SELECT * FROM users");
+            while (rs.next()) {
+                String usernameDB = rs.getString("username");
+                String passwordDB = rs.getString("password");
+
+                if ((DigestUtils.sha256Hex(password)).equals(DigestUtils.sha256Hex(passwordDB)) && (DigestUtils.sha256Hex(username)).equals(DigestUtils.sha256Hex(usernameDB))) {
+                    admin_privileges = rs.getInt("admin_privileges");
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return admin_privileges == 1;
     }
 
     public static Connection connectToDatabase(String username, String password) {

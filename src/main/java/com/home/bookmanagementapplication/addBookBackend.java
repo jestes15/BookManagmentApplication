@@ -1,4 +1,4 @@
-package com.home.bookmanagementapplication.mainMenu;
+package com.home.bookmanagementapplication;
 
 import com.home.bookmanagementapplication.security;
 import javafx.fxml.FXML;
@@ -44,16 +44,16 @@ public class addBookBackend {
     }
 
     @FXML private void onReturnButtonPressed() {
-        changeScene(returnButton.getScene(), "/../main.fxml");
+        changeScene(returnButton.getScene(), "main.fxml");
     }
     @FXML private void onCloseButtonPress() {
         System.exit(0);
     }
     @FXML private void onLogoutButtonPressed() {
-        changeScene(menuBar.getScene(), "/../loginForm.fxml");
+        changeScene(menuBar.getScene(), "loginForm.fxml");
     }
     @FXML private void onAboutButtonPressed() {
-        changeScene(menuBar.getScene(), "/../aboutForm.fxml");
+        changeScene(menuBar.getScene(), "aboutForm.fxml");
     }
     private void throwError() {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -66,7 +66,7 @@ public class addBookBackend {
 
     private void loginToDB() {
         Properties login = new Properties();
-        try (FileReader in = new FileReader("C:\\Users\\bl4z3\\IdeaProjects\\BookManagmentApplication\\src\\main\\resources\\com\\home\\bookmanagmentapplication\\properties\\login.properties")) {
+        try (FileReader in = new FileReader("C:\\Users\\bl4z3\\IdeaProjects\\BookManagementApplication\\src\\main\\resources\\com\\home\\bookmanagementapplication\\properties\\login.properties")) {
             login.load(in);
         } catch (IOException e) {
             e.printStackTrace();
@@ -102,7 +102,8 @@ public class addBookBackend {
 
         try {
             Statement stmt = con.createStatement();
-            //stmt.execute(bookArray.get(0));
+            for (Map.Entry<Integer,String> x : bookArray.entrySet())
+                stmt.execute(x.getValue());
         } catch (SQLException e) {
             e.printStackTrace();
         }

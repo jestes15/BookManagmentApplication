@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="152.0" prefWidth="655.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.home.bookmanagementapplication.mainController">
+    <MenuBar fx:id="menuBar" prefWidth="581.0">
+        <Menu mnemonicParsing="false" text="File">
+            <MenuItem mnemonicParsing="false" onAction="#onLogoutButtonPressed" text="Logout" />
+            <MenuItem mnemonicParsing="false" onAction="#onCloseButtonPress" text="Close" />
+        </Menu>
+        <Menu mnemonicParsing="false" text="Help">
+            <MenuItem mnemonicParsing="false" onAction="#onAboutButtonPressed" text="About" />
+        </Menu>
+    </MenuBar>
+    <GridPane layoutY="23.0" prefHeight="129.0" prefWidth="655.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="23.0">
+      <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="240.0" minWidth="10.0" prefWidth="200.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="240.0" minWidth="10.0" prefWidth="200.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="261.0" minWidth="10.0" prefWidth="200.0" />
+      </columnConstraints>
+      <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      </rowConstraints>
+      <children>
+         <StackPane prefHeight="150.0" prefWidth="200.0">
+            <children>
+               <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="100.0" text="Button" />
+            </children>
+         </StackPane>
+         <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1">
+            <children>
+               <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="100.0" text="Button" />
+            </children>
+         </StackPane>
+         <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="2">
+            <children>
+               <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="100.0" text="Button" />
+            </children>
+         </StackPane>
+      </children>
+    </GridPane>
+</AnchorPane>
